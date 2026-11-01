@@ -1827,7 +1827,7 @@
       "dockerTagPreviewFailed": "Tagy Docker Hub sa nepodarilo zobraziť",
       "dockerTagPreviewEmpty": "Tomuto filtru nezodpovedá žiadny skutočný tag.",
       "dockerMovingTag": "pohyblivý tag",
-      "dockerMovingTagHelp": "Pohyblivé tagy neobsahujú verziu. Sledujte ich podľa digestu v aktualizáciách Docker obrazov.",
+      "dockerMovingTagHelp": "Značky, ktorých obsah sa priebežne mení, neobsahujú číslo verzie. V aktualizáciách obrazov Docker ich sleduj podľa jednoznačného identifikátora obrazu (digestu).",
       "tagRegexLabel": "Regex tagu (so zachytávacou skupinou)",
       "tagRegexPlaceholder": "napr. v?(\\d+\\.\\d+\\.\\d+)",
       "tagRegexBare": "v?(\\d+\\.\\d+\\.\\d+)",
