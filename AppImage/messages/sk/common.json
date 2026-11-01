@@ -4161,7 +4161,7 @@
       "rotationRate": "Otáčky",
       "classCode": "Kód triedy",
       "serial": "Sériové číslo",
-      "storageController": "Storage Controller",
+      "storageController": "Radič úložiska",
       "attachedDisks": "Pripojené disky"
     },
     "values": {
