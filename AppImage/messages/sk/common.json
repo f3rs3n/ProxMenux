@@ -1857,7 +1857,7 @@
       "detectMethodCommand": "príkaz",
       "binaryVersionHint": "program (výstup --version)",
       "systemctlHint": "systemctl show <service> -p ExecStart",
-      "whichHint": "ktorá <aplikácia>",
+      "whichHint": "which <app>",
       "apkInfoHint": "\" : \"informácie o apk | grep",
       "grafanaNote": ". Grafana potrebuje",
       "hiddenDetectionsHelpSingular": "Máte {count} skrytú nájdenú aplikáciu. Obnovte ju alebo pridajte vlastnú aplikáciu ručne.",
