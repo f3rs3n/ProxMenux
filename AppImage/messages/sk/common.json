@@ -836,38 +836,38 @@
         "cache": "Cache",
         "spare": "Náhradné"
       },
-      "poolDetails": "Rozloženie fondu, stav čistenia a stav zariadenia",
-      "detailsUnavailable": "Podrobné usporiadanie bazéna vyžaduje OpenZFS 2.3 alebo novší.",
+      "poolDetails": "Rozloženie ZFS poolu, priebeh kontroly integrity a stav zariadení",
+      "detailsUnavailable": "Podrobné rozloženie poolu vyžaduje OpenZFS 2.3 alebo novší.",
       "status": "Stav",
       "action": "Akcia",
       "capacity": "Kapacita",
       "fragmentation": "Fragmentácia",
-      "dedupRatio": "Dedup Ratio",
+      "dedupRatio": "Pomer deduplikácie",
       "layout": "Rozloženie",
       "singleDisk": "Jeden disk",
       "stripe": "Stripe",
       "mirror": "Zrkadlo",
       "raidz": "RAIDZ{parity}",
       "draid": "dRAID{parity}",
-      "diskCountOne": "disk {count}",
-      "diskCountMany": "disky {count}",
+      "diskCountOne": "{count} disk",
+      "diskCountMany": "Disky: {count}",
       "errorsReported": "Boli nahlásené chyby",
-      "scanTitle": "Scrub / Resilver",
-      "scrub": "Drhnúť",
-      "resilver": "Resilver",
-      "neverScrubbed": "Nikdy nedrhnuté",
-      "scanRunning": "Technický text používateľského rozhrania pre riadiaci panel Proxmox.Preklad: {kind} prebieha ({percent}%)",
-      "scanCanceled": "{kind} zrušené",
-      "scanFinished": "{kind} dokončené {date}",
+      "scanTitle": "Kontrola integrity a obnova redundancie",
+      "scrub": "Kontrola integrity",
+      "resilver": "Obnova redundancie",
+      "neverScrubbed": "Kontrola integrity ešte neprebehla",
+      "scanRunning": "{kind}: prebieha ({percent} %)",
+      "scanCanceled": "{kind}: zrušené",
+      "scanFinished": "{kind}: dokončené {date}",
       "started": "Spustené",
-      "ended": "Hotovo",
+      "ended": "Dokončené",
       "repaired": "Opravené",
-      "scanErrors": "Chyby skenovania",
-      "dataErrors": "Chyby údajov {count}",
+      "scanErrors": "Chyby pri kontrole",
+      "dataErrors": "Chyby údajov: {count}",
       "noDataErrors": "Žiadne známe chyby údajov",
       "device": "Zariadenie",
       "disk": "Disk",
-      "state": "Štát",
+      "state": "Stav",
       "readErrors": "Chyby čítania",
       "writeErrors": "Chyby zápisu",
       "checksumErrors": "Chyby kontrolného súčtu",
@@ -879,10 +879,10 @@
       "totalSize": "Celková veľkosť",
       "fragShort": "Frag."
     },
-    "storageController": "Storage Controller",
-    "noController": "Nezistil sa žiadny ovládač",
-    "diskCountOne": "disk {count}",
-    "diskCountMany": "disky {count}"
+    "storageController": "Radič úložiska",
+    "noController": "Radič sa nezistil",
+    "diskCountOne": "{count} disk",
+    "diskCountMany": "Disky: {count}"
   },
   "details": {
     "temperature": {
@@ -1827,7 +1827,7 @@
       "dockerTagPreviewFailed": "Tagy Docker Hub sa nepodarilo zobraziť",
       "dockerTagPreviewEmpty": "Tomuto filtru nezodpovedá žiadny skutočný tag.",
       "dockerMovingTag": "pohyblivý tag",
-      "dockerMovingTagHelp": "Pohyblivé tagy neobsahujú verziu. Sledujte ich podľa digestu v aktualizáciách Docker obrazov.",
+      "dockerMovingTagHelp": "Značky, ktorých obsah sa priebežne mení, neobsahujú číslo verzie. V aktualizáciách obrazov Docker ich sleduj podľa jednoznačného identifikátora obrazu (digestu).",
       "tagRegexLabel": "Regex tagu (so zachytávacou skupinou)",
       "tagRegexPlaceholder": "napr. v?(\\d+\\.\\d+\\.\\d+)",
       "tagRegexBare": "v?(\\d+\\.\\d+\\.\\d+)",
@@ -1857,7 +1857,7 @@
       "detectMethodCommand": "príkaz",
       "binaryVersionHint": "program (výstup --version)",
       "systemctlHint": "systemctl show <service> -p ExecStart",
-      "whichHint": "ktorá <aplikácia>",
+      "whichHint": "which <app>",
       "apkInfoHint": "\" : \"informácie o apk | grep",
       "grafanaNote": ". Grafana potrebuje",
       "hiddenDetectionsHelpSingular": "Máte {count} skrytú nájdenú aplikáciu. Obnovte ju alebo pridajte vlastnú aplikáciu ručne.",
@@ -2669,12 +2669,12 @@
       "excluded": "Vylúčené",
       "notConnected": "Nepripojený",
       "saveFailed": "Nepodarilo sa uložiť vylúčenie disku.",
-      "help": "Vylúčený disk nedostane žiadnu plánovanú teplotu alebo SMART číta  Otvorenie jeho SMART detaily stále číta."
+      "help": "Z vylúčeného disku sa plánovane nečíta teplota ani údaje SMART. Pri otvorení podrobností SMART sa však disk načíta."
     },
     "storageDisplay": {
-      "title": "Displej úložiska",
-      "description": "Zmeňte spôsob rozloženia diskov na stránke Úložisko",
-      "groupByController": "Zoskupenie fyzických diskov podľa radiča úložiska"
+      "title": "Zobrazenie úložiska",
+      "description": "Nastavenie zobrazenia diskov na stránke Úložisko",
+      "groupByController": "Zoskupiť fyzické disky podľa radiča úložiska"
     }
   },
   "login": {
@@ -3767,7 +3767,7 @@
       "multilingual": "Monitor teraz hovorí 8 jazykmi: angličtina, španielčina, nemčina, francúzština, taliančina, portugalčina, švédčina a slovenčina. Veľká vďaka patrí @vaso73 za vybudovanie i18n základov.",
       "nvidiaMultiGpu": "Správa NVIDIA ovládačov sa teraz riadi presným BDF, takže server s viacerými GPU môže jednu kartu odovzdať VM a druhú ponechať pre server alebo LXC. Výber verzie zohľadní kernel, vetvu aj GPU (#298).",
       "aiCustomEndpoint": "V AI asistentovi si teraz môžete nastaviť vlastný endpoint kompatibilný s OpenAI. Pri načítaní zoznamu modelov rozpozná LiteLLM, LM Studio, LocalAI, vLLM, OmniRoute aj vlastné proxy na súkromných IP adresách, lokálnom rozhraní či v Docker sieťach. Prípadná chyba servera alebo siete sa zobrazí priamo pod tlačidlom „Načítať“ (#325, nahlásil @jorgeffonte).",
-      "secureGatewayArch": "Sprievodca Secure Gateway teraz prispôsobí stiahnutie Alpine šablóny, výber lokálnej šablóny aj vytvorenie kontajnera cez pct skutočnej architektúre servera. Server x86_64 tak dostane kontajner amd64 a server arm64 kontajner arm64 (#324, nahlásil @N0X4DD0).",
+      "secureGatewayArch": "Sprievodca Secure Gateway teraz prispôsobí stiahnutie Alpine šablóny, výber lokálnej šablóny aj vytvorenie kontajnera cez pct create skutočnej architektúre servera. Server x86_64 tak dostane kontajner amd64 a server arm64 kontajner arm64 (#324, nahlásil @N0X4DD0).",
       "atomicNotifications": "Udalosti upozornení si ešte pred spracovaním AI a odoslaním do kanála atómovo rezervujú jedinečný odtlačok proti duplicitám. Súbežné kontroly, dokončovacie volania ani paralelné procesy Monitoru tak neodošlú tú istú udalosť dvakrát. Ak neodošle úspešne žiadny kanál, rezervácia sa uvoľní, aby mohli fungovať opakované pokusy.",
       "borgSshPort": "Cieľ Borg na vzdialenom serveri — dialóg „Pridať cieľ Borg“ aj textové rozhranie podporujú vlastný SSH port. Rešpektujú ho BORG_RSH, automatická inštalácia kľúča aj kontrola kapacity. Existujúce ciele bez uvedeného portu naďalej fungujú bez zmeny (navrhol @songochain v diskusii #236).",
       "githubToken": "V časti Nastavenia → GitHub API môžete zadať voliteľný osobný prístupový token, ak pri kontrole vydaní a značiek vyčerpáte anonymný limit. Token je v úložisku zašifrovaný a nikdy sa neposiela do prehliadača; hlásenie o prekročenom limite je preložené do každého jazyka Monitoru (navrhol @SystemIdleProcess v diskusii #306).",
@@ -3797,13 +3797,13 @@
       "ociCatalog": "OCI manager Apps (Technology Preview) — nová položka v ponuke ProxMenux inštaluje aplikácie z ich oficiálnych kontajnerových obrazov ako natívne kontajnery Proxmox LXC, bez Dockeru. Katalóg obsahuje 514 aplikácií.",
       "pbsSupport": "ProxMenux na Proxmox Backup Server — inštaluje sa rovnakým príkazom a otvára vlastnú ponuku s poinštaláciou a Monitorom, ktorý zobrazuje stav, úložiská dát a úlohy servera (prispel @jcastro).",
       "menuSearch": "Vyhľadávanie v hlavnej ponuke — názov alebo jeho časť nájde možnosť ProxMenux, aplikáciu OCI alebo Helper-Script a otvorí ju na jej prvej obrazovke.",
-      "composeStacks": "Súbory Compose s viacerými službami — Custom image nainštaluje jeden LXC na službu v privátnej sieti a spúšťa ich v poradí závislostí. Aktualizácie, zálohy a odstránenie fungujú pre celú aplikáciu.",
-      "keepProxmoxChanges": "Aktualizácie OCI zachovávajú, čo zmeníte v Proxmoxe — premenné, príkaz spustenia, sieťové možnosti, DNS, features, veľkosti diskov a riadky lxc.* zostávajú v obnovenom kontajneri, aj pri plánovaných aktualizáciách a v každom člene stacku.",
-      "ociVlan": "Značka VLAN pre aplikácie OCI — pokročilá inštalácia sa na ňu opýta pri adrese a Upraviť ju zmení pri samostatnej aplikácii. Hostiteľ nepotrebuje prístup do tejto VLAN.",
-      "ociNewApps": "Novinky v katalógu OCI — Authentik, TeslaMate, Zigbee2MQTT, Scanopy, Umami, Scrypted, NetAlertX a ďalších desať aplikácií a Ollama a llama.cpp bežia na integrovaných GPU Intel a AMD.",
-      "hostUpdateJob": "Aktualizácie Proxmoxu, ktoré pokračujú aj po odhlásení — aktualizácia beží ako úloha na serveri a po opätovnom prihlásení sa znova otvorí. Po novom jadre sa zobrazí čakajúci reštart s tlačidlom, ktoré najprv skontroluje hostiteľa.",
-      "storageDetails": "Podrobnosti úložiska — pooly ZFS zobrazujú svoju štruktúru, scrub a stav zariadení a každý disk ukazuje svoj radič, aj na stránke Hardvér. Prahové hodnoty diskov VM pribudli v Nastaveniach.",
-      "log2ramV2": "Log2RAM 2.0 — žurnál a záznamy úloh Proxmoxu zostávajú na disku so svojou históriou a do RAM idú len záznamy, ktoré sa neustále menia. Hostitelia, ktorí ho už používajú, sa aktualizujú s ProxMenux."
+      "composeStacks": "Súbory Compose s viacerými službami — voľba Vlastný obraz vytvorí pre každú službu samostatný LXC v súkromnej sieti. Služby sa spúšťajú v poradí podľa závislostí. Aktualizácie, zálohovanie a odstránenie sa vykonávajú pre celú aplikáciu.",
+      "keepProxmoxChanges": "Aktualizácie OCI zachovávajú zmeny vykonané v Proxmoxe — premenné, príkaz spustenia, nastavenia siete, DNS, funkcie kontajnera (features), veľkosti diskov a riadky lxc.* zostávajú aj v znovu vytvorenom kontajneri. Platí to aj pre plánované aktualizácie a všetky kontajnery aplikácie.",
+      "ociVlan": "Značka VLAN pre aplikácie OCI — pokročilá inštalácia ju ponúkne pri nastavení adresy. Pri aplikácii s jedným kontajnerom ju možno zmeniť cez Upraviť. Server nemusí mať prístup do tejto VLAN.",
+      "ociNewApps": "Novinky v katalógu OCI — Authentik, TeslaMate, Zigbee2MQTT, Scanopy, Umami, Scrypted, NetAlertX a ďalších desať aplikácií. Ollama a llama.cpp teraz fungujú aj s integrovanými GPU Intel a AMD.",
+      "hostUpdateJob": "Aktualizácie Proxmoxu pokračujú aj po odhlásení — bežia ako úloha na serveri a po opätovnom prihlásení sa ich priebeh znova otvorí. Po inštalácii nového jadra sa zobrazí požadovaný reštart s tlačidlom, ktoré najprv skontroluje server.",
+      "storageDetails": "Podrobnosti úložiska — pri ZFS pooloch sa zobrazuje ich rozloženie, kontrola integrity a stav zariadení. Každý disk má uvedený svoj radič, aj na stránke Hardvér. V Nastaveniach pribudli prahové hodnoty zaplnenia diskov VM.",
+      "log2ramV2": "Log2RAM 2.0 — žurnál a záznamy úloh Proxmoxu zostávajú na disku aj so svojou históriou. Do RAM sa ukladajú iba priebežne sa meniace záznamy. Na serveroch, ktoré už Log2RAM používajú, sa nová verzia nainštaluje pri aktualizácii ProxMenuxu."
     }
   },
   "network": {
@@ -4161,7 +4161,7 @@
       "rotationRate": "Otáčky",
       "classCode": "Kód triedy",
       "serial": "Sériové číslo",
-      "storageController": "Storage Controller",
+      "storageController": "Radič úložiska",
       "attachedDisks": "Pripojené disky"
     },
     "values": {
@@ -6081,7 +6081,7 @@
             "evaluationFailed": "Kontrolu sa nepodarilo vyhodnotiť"
           },
           "nextStep": {
-            "noJobs": "Vytvorte záložnú úlohu na tomto uzle a vyberte hostí, ktorí majú dáta, ktoré by ste nechceli prestavať ručne. Práca, ktorá existuje, ale je zdravotne postihnutá, nič nevyberá.",
+            "noJobs": "Vytvor zálohovaciu úlohu na tomto uzle a vyber VM alebo kontajnery s údajmi, ktoré by sa ťažko obnovovali ručne. Vypnutá úloha nezahŕňa do zálohovania žiadne VM ani kontajnery.",
             "uncovered": "Rozhodnite sa pre každého z týchto hostí, či má niečo, čo stojí za to udržať. Pridajte tie, ktoré robia prácu; pre tie, ktoré nie, deklarujte, že v politike, takže sa prestanú počítať tu.",
             "excludedData": "Otvorte zoznam vylúčených pracovných miest a potvrďte, že vynecháva údaje, ktoré si môžete dovoliť stratiť. Vylúčenie pridané, aby sa práca rýchlejšie chráni nič, čo preskočí.",
             "uncoveredExpected": "Politika vyhlasuje, že títo hostia vyžadujú zálohu a žiadna povolená práca si ich vyberie. Buď ich pridajte do práce, alebo zmeňte, čo politika vyhlasuje, takže obaja súhlasia."
@@ -6099,7 +6099,7 @@
             "evaluationFailed": "Kontrolu sa nepodarilo vyhodnotiť"
           },
           "nextStep": {
-            "stale": "Zistite, prečo práca prestala pre týchto hostí vyrábať výtlačky: mohla byť zdravotne postihnutá, jej rozvrh možno nikdy nevystrelí, alebo môže zlyhať. Spustiť výsledky kontroly hlási, ako každá práca skončila.",
+            "stale": "Zisti, prečo úloha prestala vytvárať zálohy týchto VM alebo kontajnerov: môže byť vypnutá, nemusí sa spúšťať podľa plánu alebo môže končiť chybou. V prehľade výsledkov skontroluj jej posledné spustenie.",
             "noBackups": "Žiadna uložená kópia sa nezhoduje s hosťom v tomto uzle. Ak práce napísať do cieľa, tento uzol nemôže čítať, to sa očakáva, inak sú produkovať nič.",
             "attention": "Prezrite si uvedených hostí. Každá z nich nemá žiadnu kópiu alebo je staršia ako vek, ktorý sa používa."
           },
@@ -7449,8 +7449,8 @@
           "label": "Úložisko PVE je takmer plné"
         },
         "zfs_pool_full": {
-          "title": "{hostname}: Fond ZFS {pool_name} je zaplnený na {usage_percent}%",
-          "body": "Fond ZFS „{pool_name}“ je zaplnený na {usage_percent}%.\n\nVýkon a spoľahlivosť zápisu ZFS sa nad približne 80 % výrazne zhoršujú, pretože CoW potrebuje voľné miesto pre nové bloky. Uvoľnite snímky, odstráňte staré datasety alebo pridajte do fondu ďalšie vdevy.",
+          "title": "{hostname}: ZFS pool {pool_name} je zaplnený na {usage_percent} %",
+          "body": "ZFS pool „{pool_name}“ (spoločné úložisko diskov) je zaplnený na {usage_percent} %.\n\nVýkon a spoľahlivosť zápisu ZFS sa nad približne 80 % výrazne zhoršujú, pretože CoW potrebuje voľné miesto pre nové bloky. Uvoľni miesto odstránením nepotrebných snímok a datasetov alebo rozšír pool o ďalšie vdevy.",
           "label": "ZFS pool je takmer plný"
         },
         "post_install_update": {
