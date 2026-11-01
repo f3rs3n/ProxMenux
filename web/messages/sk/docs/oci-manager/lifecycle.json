@@ -167,7 +167,7 @@
                 "body": "Obnoví overenú natívnu zálohu vytvorenú pred výmenou aj predchádzajúcu uloženú konfiguráciu."
               },
               {
-                "title": "Zostavy ako celok",
+                "title": "Všetky kontajnery aplikácie spoločne",
                 "body": "Pri aplikácii s viacerými kontajnermi sa do rovnakého stavu pred aktualizáciou obnovia všetky jej kontajnery, nielen vybraný kontajner."
               }
             ]
@@ -386,8 +386,8 @@
                 "Už s ním nie je spojený žiadny CT"
               ],
               [
-                "Súkromný most zostavy",
-                "Uvoľní sa spolu so zostavou",
+                "Súkromný sieťový most aplikácie",
+                "Uvoľní sa spolu s aplikáciou",
                 "Nemá žiadne ďalšie kontajnery na pripojenie"
               ],
               [
@@ -398,7 +398,7 @@
               [
                 "Jeden kontajner aplikácie s viacerými kontajnermi",
                 "Neodstránené samostatne",
-                "Odstráni sa celá aplikácia, aby nezostala neúplná zostava"
+                "Odstráni sa celá aplikácia, aby nezostali iba niektoré jej kontajnery"
               ],
               [
                 "Kontajner na inom uzle klastra",
