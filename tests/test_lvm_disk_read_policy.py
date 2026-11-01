@@ -154,6 +154,14 @@ class LvmReaderTests(unittest.TestCase):
         self.assertTrue(result["skipped"])
         self.assertEqual([call.args[0] for call in run.call_args_list], [["which", "lvs"]])
 
+    def test_health_accepts_a_volume_group_without_active_volumes(self):
+        run = Mock(side_effect=[types.SimpleNamespace(returncode=0),
+                                types.SimpleNamespace(returncode=0, stdout="  data pve twi---tz--\n")])
+        function = self.extract("health_monitor.py", "_check_lvm", "HealthMonitor", {
+            "Dict": dict, "Any": object, "subprocess": types.SimpleNamespace(run=run), "_lvm_device_args": lambda: [],
+        })
+        self.assertEqual(function(None), {"status": "OK", "volumes": 0})
+
     def test_storage_skips_pvs_when_no_scan_is_permitted(self):
         tree = ast.parse((SCRIPTS / "flask_server.py").read_text())
         function = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == "get_system_disks")

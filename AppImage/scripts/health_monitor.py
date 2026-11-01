@@ -2306,20 +2306,8 @@ class HealthMonitor:
                         if 'a' in parts[2]:
                             volumes.append(f'{vg_name}/{lv_name}')
             
-            # If LVM is configured but no active volumes are found, it might be an issue or just not used
-            if not volumes:
-                # Check if any VGs exist to determine if LVM is truly unconfigured or just inactive
-                vg_result = subprocess.run(
-                    ['vgs', *dev_args, '--noheadings', '--options', 'vg_name'],
-                    capture_output=True,
-                    text=True,
-                    timeout=3
-                )
-                if vg_result.returncode == 0 and vg_result.stdout.strip():
-                    return {'status': 'WARNING', 'reason': 'No active LVM volumes detected'}
-                else:
-                    return {'status': 'OK'} # No VGs found, LVM not in use
-            
+            # No active volume is normal for a leftover disk, stopped guests or
+            # shared LVM; the storage check reports a storage Proxmox cannot use.
             return {'status': 'OK', 'volumes': len(volumes)}
             
         except Exception:
