@@ -141,7 +141,7 @@
               ],
               [
                 "Plánované aktualizácie",
-                "Obraz sa aktualizuje v zvolenom čase iba vtedy, keď register publikuje nový obraz; voliteľne až po jeho dosiahnutí veku 1, 3, 7 alebo 14 dní. Kontajner so zmenami mimo ProxMenux sa preskočí a nahlási."
+                "Obraz sa aktualizuje v zvolenom čase iba vtedy, keď register zverejní nový obraz; voliteľne až po uplynutí 1, 3, 7 alebo 14 dní od jeho vydania. Nastavenia zmenené v Proxmoxe sa zachovajú."
               ]
             ]
           }
