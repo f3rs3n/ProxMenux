@@ -2669,12 +2669,12 @@
       "excluded": "Vylúčené",
       "notConnected": "Nepripojený",
       "saveFailed": "Nepodarilo sa uložiť vylúčenie disku.",
-      "help": "Vylúčený disk nedostane žiadnu plánovanú teplotu alebo SMART číta  Otvorenie jeho SMART detaily stále číta."
+      "help": "Z vylúčeného disku sa plánovane nečíta teplota ani údaje SMART. Pri otvorení podrobností SMART sa však disk načíta."
     },
     "storageDisplay": {
-      "title": "Displej úložiska",
-      "description": "Zmeňte spôsob rozloženia diskov na stránke Úložisko",
-      "groupByController": "Zoskupenie fyzických diskov podľa radiča úložiska"
+      "title": "Zobrazenie úložiska",
+      "description": "Nastavenie zobrazenia diskov na stránke Úložisko",
+      "groupByController": "Zoskupiť fyzické disky podľa radiča úložiska"
     }
   },
   "login": {
