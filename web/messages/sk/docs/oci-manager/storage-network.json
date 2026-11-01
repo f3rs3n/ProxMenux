@@ -224,6 +224,9 @@
           }
         },
         {
+          "p": "Prístupové rozhranie môže mať značku VLAN. Pokročilá inštalácia ju ponúkne pri nastavení adresy a cez Upraviť ju možno zmeniť alebo odstrániť pri aplikácii s jedným kontajnerom. Značka nastavená v Proxmoxe sa zachová. Pri použití značky ProxMenux overuje aplikáciu zvnútra jej kontajnera, takže server nemusí mať prístup do tejto VLAN."
+        },
+        {
           "flow": {
             "nodes": [
               {
